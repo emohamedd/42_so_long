@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:55:43 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/20 16:09:54 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/21 12:23:21 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int check_file_ber(char* file_name)
 			return 1;
 	else 
 	{
-		ft_printf("%sThe string does not end with .ber%s\n", RED, END);
+		ft_printf("%sERROR : The string does not end with .ber%s\n", RED, END);
 			exit(1);
 	}
 		

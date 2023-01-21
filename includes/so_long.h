@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:05:57 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/20 22:43:55 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/21 12:01:51 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ void draw_map(t_map *all);
 void draw_map1(t_map *all);
 int key_hook(int keycode, t_map *all);
 void banner(void);
+void win_banner(void);
 void coin_count(t_map *all);
 int check_file_ber(char* file_name);
 void exit_door(t_map *all);
+
 #endif

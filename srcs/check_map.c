@@ -34,7 +34,8 @@ int check_map(t_map *all)
         while (j < all->cols)
         {
             if (!ft_strchr("01ECP", all->map[i][j]))
-            {
+            {   
+                ft_printf("%s%s ERROR :  The Map Should Contain Only 01ECP", RED, END);
                 return 0;
             }
             else if (all->map[i][j] == 'P')
@@ -103,9 +104,9 @@ int valid_map(t_map *all)
     }
     if(check == 1 || !check_maps)
     {
-        ft_printf("%sinvalid map%s\n", RED, END);
+        ft_printf("%sERROR : Invalid Map%s\n", RED, END);
         exit(1);
     }
-   ft_printf("%s Map is valid %s\n", GREEN, END);
+   ft_printf("%s SUCCES : Map is valid %s\n", GREEN, END);
         return 1;
 }
