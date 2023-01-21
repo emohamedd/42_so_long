@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:38:14 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/17 23:20:08 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/21 08:26:25 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int count_lines(char* filename) {
 	line = get_next_line(fd);
     while (line) {
         lines++;
+        free(line); 
 		line = get_next_line(fd);
     }
     close(fd);

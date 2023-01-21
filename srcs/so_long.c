@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:37:43 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/20 14:49:44 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/21 08:40:56 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,31 +105,33 @@ void draw_map(t_map *all)
 }
 void move_right(t_map *all)
 {
-	if (all->map[all->player_x][all->player_y + 1] != '1')
+	if (all->map[all->player_x][all->player_y + 1] != '1' && all->map[all->player_x][all->player_y + 1] != 'E')
 	{
 		if ( all->map[all->player_x][all->player_y + 1] == 'C'){
 			all->coin_counter +=1;
 		if (all->cnt_c == all->coin_counter)
 			all->is_open = 1;
 			// ft_printf("%d\n", all->coin_counter);	
+		exit_door(all);
 		}
 		all->counter +=1;
 		all->map[all->player_x][all->player_y] = '0';
 		all->player_y += 1;
 		all->map[all->player_x][all->player_y] = 'P';
 		all->p = mlx_xpm_file_to_image(all->mlx_ptr,"players/p.xpm",&all->i, &all->j);
-		ft_printf(" * --> Player Moves = %d%s\n", all->counter,  YELLOW, END);
+		ft_printf(" * --> Moves = %d%s\n", all->counter,  YELLOW, END);
 	}
 }
 void move_left(t_map *all)
 {
-	if (all->map[all->player_x][all->player_y - 1] != '1')
+	if (all->map[all->player_x][all->player_y - 1] != '1' && all->map[all->player_x][all->player_y - 1] != 'E')
 	{
 		if ( all->map[all->player_x][all->player_y - 1] == 'C')
 		{
 			all->coin_counter +=1;
 			if (all->cnt_c == all->coin_counter)
 				all->is_open = 1;
+			exit_door(all);
 			// ft_printf("%d\n", all->coin_counter);
 		}
 		all->counter +=1;
@@ -137,43 +139,45 @@ void move_left(t_map *all)
 		all->player_y -= 1;
 		all->map[all->player_x][all->player_y] = 'P';
 		all->p = mlx_xpm_file_to_image(all->mlx_ptr,"players/pv2.xpm",&all->i, &all->j);
-		ft_printf(" * --> Player Moves = %d%s\n", all->counter,  YELLOW, END);
+		ft_printf(" * --> Moves = %d%s\n", all->counter,  YELLOW, END);
 	}
 }
 void move_up(t_map *all)
 {
-	if (all->map[all->player_x - 1][all->player_y] != '1')
+	if (all->map[all->player_x - 1][all->player_y] != '1' && all->map[all->player_x - 1][all->player_y] != 'E')
 	{
 		if ( all->map[all->player_x - 1][all->player_y] == 'C')
 		{
 			all->coin_counter +=1;
 			if (all->cnt_c == all->coin_counter)
 				all->is_open = 1;
+			exit_door(all);
 			// ft_printf("%d\n", all->coin_counter);
 		}
 		all->counter +=1;
 		all->map[all->player_x][all->player_y] = '0';
 		all->player_x -= 1;
 		all->map[all->player_x][all->player_y] = 'P';
-		ft_printf(" * --> Player Moves = %d%s\n", all->counter,  YELLOW, END);
+		ft_printf(" * --> Moves = %d%s\n", all->counter,  YELLOW, END);
 	}
 }
 void move_down(t_map *all)
 {
-	if (all->map[all->player_x + 1][all->player_y] != '1')
+	if (all->map[all->player_x + 1][all->player_y] != '1' && all->map[all->player_x + 1][all->player_y] != 'E')
 	{
 		if ( all->map[all->player_x + 1][all->player_y] == 'C')
 		{
 			all->coin_counter +=1;
 			if (all->cnt_c == all->coin_counter)
 				all->is_open = 1;
+		exit_door(all);
 			// ft_printf("%d\n", all->coin_counter);
 		}
 		all->counter +=1;
 		all->map[all->player_x][all->player_y] = '0';
 		all->player_x += 1;
 		all->map[all->player_x][all->player_y] = 'P';
-		ft_printf(" * --> Player Moves = %d%s\n", all->counter,  YELLOW, END);
+		ft_printf(" * -->  Moves = %d%s\n", all->counter,  YELLOW, END);
 	}
 }
 int key_hook(int keycode, t_map *all)
@@ -207,4 +211,13 @@ int key_hook(int keycode, t_map *all)
 	}
 
 	return 1;
+}
+void exit_door(t_map *all)
+{
+	if ((all->map[all->player_x][all->player_y + 1] == 'E' && all->is_open == 1 )
+	|| (all->map[all->player_x][all->player_y - 1] == 'E' && all->is_open == 1) || 
+	(all->map[all->player_x][all->player_y - 1] == 'E' && all->is_open == 1) ||
+	 (all->map[all->player_x + 1][all->player_y] == 'E' && all->is_open ==1))
+			exit(0);	
+
 }

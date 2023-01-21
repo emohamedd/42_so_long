@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 18:24:32 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/17 23:48:14 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/21 08:46:27 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ void	get_map(char *file_name, t_map *all)
     if (fd == -1)
         return ;
 	getstore = get_next_line(fd);
+    if (!getstore)
+    {
+       ft_printf("%sError : Empty MAP%s", RED, END); 
+        exit(1);
+    }
     all->cols = ft_strlen(getstore);
 	if (getstore[0] == '\n')
 		exit(0);
@@ -31,6 +36,7 @@ void	get_map(char *file_name, t_map *all)
     while (getstore != NULL)
 	{
 		line = ft_strjoin_v2(line, getstore);
+        free(getstore);
 		getstore = get_next_line(fd);
         i++;
     }
