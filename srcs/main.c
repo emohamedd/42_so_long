@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:53:48 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/21 13:04:13 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/23 13:25:34 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 int main(int argc, char **argv)
 {
 	t_map	all;
-
 
 	if (argc != 2)
 	{
@@ -24,7 +23,6 @@ int main(int argc, char **argv)
 	all.is_open = 0;
 	all.map_path = argv[1];
 	banner();
-	// win_banner();
 	check_file_ber(argv[1]);
 	count_lines(argv[1]);
 	get_map(argv[1], &all);
@@ -38,6 +36,6 @@ int main(int argc, char **argv)
 	draw_map(&all);
 	draw_map1(&all);
 	mlx_hook(all.mlx_win, 2, 0, key_hook, &all);
-	mlx_loop(all.mlx_ptr);
-	
+	mlx_hook(all.mlx_win, ON_DESTROY, 0, on_destroy, (void *)0);
+	mlx_loop(all.mlx_ptr);	
 }

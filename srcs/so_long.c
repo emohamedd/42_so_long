@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:37:43 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/21 13:27:41 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/23 13:54:07 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,37 +69,37 @@ void draw_map(t_map *all)
 
 	if (!all->bg)
 	{
-		ft_printf(" ERROR :Invalid Background image");
-		exit(0);
+		ft_printf("%sERROR :Invalid Background image%s", RED, END);
+		exit(1);
 	}
 	all->wll = mlx_xpm_file_to_image(all->mlx_ptr,"players/texture.xpm",&all->i, &all->j);
 	if (!all->wll)
 	{
-		ft_printf(" ERROR :Invalid wall image");
-		exit(0);
+		ft_printf("%sERROR :Invalid wall image%s", RED, END);
+		exit(1);
 	}
 	all->clt = mlx_xpm_file_to_image(all->mlx_ptr,"players/col.xpm",&all->i, &all->j);
 	if (!all->clt){
-		ft_printf(" ERROR :Invalid collectable image ");
-		exit(0);
+		ft_printf("%sERROR :Invalid collectable image%s", RED, END);
+		exit(1);
 	}
 
 	all->p = mlx_xpm_file_to_image(all->mlx_ptr,"players/p.xpm",&all->i, &all->j);
 	if (!all->p){
-		ft_printf(" ERROR :Invalid player image");
-		exit(0);	
+		ft_printf("%sERROR :Invalid player image%s", RED, END);
+		exit(1);	
 	}
 	all->e = mlx_xpm_file_to_image(all->mlx_ptr,"players/e.xpm",&all->i, &all->j);
 	if (!all->e)
 	{
-		ft_printf(" ERROR :Invalid Exit image");
-		exit(0);
+		ft_printf("%sERROR :Invalid Exit image%s", RED, END);
+		exit(1);
 	}
 	all->e2 = mlx_xpm_file_to_image(all->mlx_ptr,"players/e2.xpm",&all->i, &all->j);
 	if (!all->e2)
 	{
-		ft_printf(" ERROR :Invalid Exit image2");
-		exit(0);
+		ft_printf("%sERROR :Invalid Exit image2%s", RED, END);
+		exit(1);
 	}
 	
 }
@@ -206,11 +206,17 @@ int key_hook(int keycode, t_map *all)
 		move_right(all);
 		draw_map1(all);
 	} 
-	else if (keycode == ESC_KEY )
+	else if (keycode == ESC_KEY)
 	{
+		ft_printf("%s SUCCES : window is destroyed%s", GREEN, END);
 		mlx_destroy_window( all->mlx_ptr, all->mlx_win);
-		exit(1);			
+		exit(0);			
 	}
 
 	return 1;
+}
+int on_destroy(t_map *all)
+{
+    ft_printf("%s SUCCES : window is destroyed%s", GREEN, END);
+    exit(0);
 }

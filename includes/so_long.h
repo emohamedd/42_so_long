@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:05:57 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/21 12:01:51 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/23 13:24:49 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 # define RIGHT_KEY 124
 # define DOWN_KEY 125
 # define ESC_KEY 53
+#define ON_DESTROY 17
+
 typedef struct map
 {
 	char **map;
@@ -77,5 +79,6 @@ void win_banner(void);
 void coin_count(t_map *all);
 int check_file_ber(char* file_name);
 void exit_door(t_map *all);
+int on_destroy(t_map *all);
 
 #endif
