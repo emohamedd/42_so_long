@@ -28,14 +28,13 @@ int check_map(t_map *all)
         if (all->map[d] == NULL )   
             break;   
     }
-    // all->map[i][j] != 'E' && all->map[i][j] != 'P'  && all->map[i][j] != 'C' && all->map[i][j] != '1' && all->map[i][j] != '0'
     while (i < all->rows - 1)
     {
         while (j < all->cols)
         {
             if (!ft_strchr("01ECP", all->map[i][j]))
             {   
-                ft_printf("%s%s ERROR :  The Map Should Contain Only 01ECP", RED, END);
+                ft_printf("%sERROR :  The Map Should Contain Only 01ECP%s\n", RED, END);
                 return 0;
             }
             else if (all->map[i][j] == 'P')
@@ -59,6 +58,7 @@ int check_map(t_map *all)
     }
 
     if (cnt_pt != 1 || cnt_e != 1 || all->cnt_c < 1 || d != all->rows - 1) {
+        ft_printf("%s ERROR : P < 1 || E < 1 || !C%s", RED, END);
         return 0;
     }
     return 1;
