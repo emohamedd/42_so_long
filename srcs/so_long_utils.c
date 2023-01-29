@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:38:14 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/25 19:16:33 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/29 20:06:46 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int count_lines(char* filename) {
 }
 void exit_door(t_map *all)
 {
-	if ((all->map[all->player_x][all->player_y + 1] == 'E' && all->is_open == 1 )
-	|| (all->map[all->player_x][all->player_y - 1] == 'E' && all->is_open == 1) || 
-	(all->map[all->player_x - 1][all->player_y] == 'E' && all->is_open == 1) ||
-	 (all->map[all->player_x + 1][all->player_y] == 'E' && all->is_open ==1))
-     {  
-			win_banner();
-			exit(0);
-     }
+	// if ((all->map[all->player_x][all->player_y + 1] == 'E' && all->is_open == 1 )
+	// || (all->map[all->player_x][all->player_y - 1] == 'E' && all->is_open == 1) || 
+	// (all->map[all->player_x - 1][all->player_y] == 'E' && all->is_open == 1) ||
+	//  (all->map[all->player_x + 1][all->player_y] == 'E' && all->is_open ==1))
+    //  {  
+    win_banner();
+    exit(0);
+    //  }
 }
     

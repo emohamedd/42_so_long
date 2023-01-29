@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:53:48 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/24 11:11:32 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/29 20:12:05 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 		get_map(argv[1], &all);
 		valid_map(&all);
 		check_map(&all);
-		exit_door(&all);
 		int xlen = ft_strlen(all.map[0]);
 		int  ylen= count_lines(all.map_path);
 		all.mlx_ptr = mlx_init();
