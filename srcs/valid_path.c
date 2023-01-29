@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:05:33 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/29 05:49:26 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/29 21:16:25 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void check_map_rec(t_map *all)
 {
-	if (all->map[all->player_y][all->player_x] == '1' || all->map[all->player_y][all->player_x] == 'E')
+	if (all->map[all->player_x][all->player_y] == '1' || all->map[all->player_x][all->player_y] == 'E')
 	return ;
 	else
-		all->map[all->player_y][all->player_x] == '1';
-	check_map_rec(all->map[all->player_y - 1][all->player_x]);
-	check_map_rec(all->map[all->player_y][all->player_x + 1]);
-	check_map_rec(all->map[all->player_y + 1][all->player_x]);
-	check_map_rec(all->map[all->player_y][all->player_x - 1]);
+		all->map[all->player_x][all->player_y] == '1';
+	check_map_rec(all->map[all->player_x - 1][all->player_y]);
+	check_map_rec(all->map[all->player_x][all->player_y + 1]);
+	check_map_rec(all->map[all->player_x + 1][all->player_y]);
+	check_map_rec(all->map[all->player_x][all->player_y - 1]);
 }
 
 int map_path(t_map *all)

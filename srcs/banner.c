@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 10:11:37 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/21 13:29:40 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/29 22:59:38 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void win_banner(void)
 ft_printf("\n");
 ft_printf("%s\t\t\t\t\t\t         GOOD JOB %s\n\n", YELLOW, END);
 ft_printf("%s  \t\t\t\t\t\t\t█▄█ █▀█  █░█  █░█░█ █ █▄░█\n", GREEN);
-ft_printf("    \t\t\t\t\t\t\t █  █▄█  █▄█  ▀▄▀▄▀ █ █░▀█%s\n\n\n", END);
+ft_printf("    \t\t\t\t\t\t\t █  █▄█  █▄█  ▀▄▀▄▀ █ █░▀█%s\n\n", END);
 }

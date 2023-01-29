@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 20:37:57 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/29 20:15:27 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/29 22:53:12 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void move_left(t_map *all)
 		ft_printf(" * --> Moves = %d%s\n", all->counter,  YELLOW, END);
 	}
 	if (all->map[all->player_x][all->player_y - 1] == 'E' && all->is_open == 1)
-		all->player_y --;
+		all->player_y--;
 }
 void move_up(t_map *all)
 {
@@ -72,7 +72,7 @@ void move_up(t_map *all)
 		ft_printf(" * --> Moves = %d%s\n", all->counter,  YELLOW, END);
 	}
 	if (all->map[all->player_x - 1][all->player_y] == 'E' && all->is_open == 1)
-		all->player_x --;
+		all->player_x--;
 }
 void move_down(t_map *all)
 {
