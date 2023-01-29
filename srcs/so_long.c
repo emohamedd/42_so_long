@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:37:43 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/29 22:55:00 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/30 00:39:52 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void draw_map(t_map *all)
 		ft_printf("%sERROR :Invalid wall image%s", RED, END);
 		exit(1);
 	}
-	all->clt = mlx_xpm_file_to_image(all->mlx_ptr,"textures/col.xpm",&all->i, &all->j);
+	all->clt = mlx_xpm_file_to_image(all->mlx_ptr,"textures/key.xpm",&all->i, &all->j);
 	if (!all->clt){
 		ft_printf("%sERROR :Invalid collectable image%s", RED, END);
 		exit(1);
