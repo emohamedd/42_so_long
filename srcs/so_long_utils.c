@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:38:14 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/29 23:22:56 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/30 10:01:42 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void exit_door(t_map *all)
 	//  (all->map[all->player_x + 1][all->player_y] == 'E' && all->is_open ==1))
     //  {  
     win_banner();
-    ft_printf("%s\t\t\t\t\t\t\t NEW SCORE : *- %d -* %s\n\n", GREEN, all->counter, END); 
+    ft_printf("%s\t\t\t\t\t\t\t YOUR SCORE : *- %d -* %s\n\n", GREEN, all->counter, END); 
     ft_printf("%s\t\t\t\t\t\t\t\t NOW U ARE READY TO WIN THE WAR !!!%s\n", RED, END); 
     exit(0);
     //  }

@@ -6,12 +6,11 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:37:43 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/30 00:39:52 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/30 13:01:48 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
 
 void draw_map1(t_map *all)
 {
@@ -101,8 +100,7 @@ void draw_map(t_map *all)
 	}
 	
 }
-
-int on_destroy(t_map *all)
+int on_destroy()
 {
     ft_printf("%s SUCCES : window is destroyed%s", GREEN, END);
     exit(0);

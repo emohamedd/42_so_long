@@ -6,43 +6,81 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:05:33 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/29 21:16:25 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/30 16:13:46 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void check_map_rec(t_map *all)
+
+char **copy_map(char **map)
 {
-	if (all->map[all->player_x][all->player_y] == '1' || all->map[all->player_x][all->player_y] == 'E')
-	return ;
-	else
-		all->map[all->player_x][all->player_y] == '1';
-	check_map_rec(all->map[all->player_x - 1][all->player_y]);
-	check_map_rec(all->map[all->player_x][all->player_y + 1]);
-	check_map_rec(all->map[all->player_x + 1][all->player_y]);
-	check_map_rec(all->map[all->player_x][all->player_y - 1]);
+	char **map_copy;
+	int map_len = 0;
+	int col = 0;
+	
+		while(map[map_len])
+			map_len++;
+	map_copy = malloc((map_len + 1) * sizeof(char*));
+	if (!map_copy)
+		return NULL;
+	while(map[col])
+	{
+			map_copy[col] = strdup(map[col]);
+			col++;
+	}
+	map_copy[col] = 0;
+	return map_copy;
 }
 
-int map_path(t_map *all)
+ void	check_map_rec(char **map, int play_x, int play_y)
 {
-	all->cols = 0;
-	while(all->map[all->cols])
+	if (map[play_x][play_y] == '1')
+		return ;
+	else
+		map[play_x][play_y] = '1';
+	check_map_rec(map, play_x, play_y + 1);
+	check_map_rec(map, play_x - 1, play_y);
+	check_map_rec(map, play_x, play_y - 1);
+	check_map_rec(map, play_x + 1, play_y);
+}
+
+int map_path(char **map)
+{
+	int rows;
+	int cols;
+	cols = 0;
+	while(map[cols])
 	{
-		all->rows = 0;
-		while(all->map[all->cols][all->rows])
+		rows = 0;
+		while(map[cols][rows])
 		{
-			if (all->map[all->cols][all->rows] != '1' &&all->map[all->cols][all->rows] != 'E')
+			if (map[cols][rows] != '1' && map[cols][rows] != 'E')
 			{
 				return 0;
 			}
-			all->rows++;
+			rows++;
 		}
-		all->cols++;
+		cols++;
 	}
 	return 1;
 }
-	int all_valid(t_map *all)
+int all_valid(char **map)
 {
-		
+	t_map *all  = NULL;
+	int player_x = all->player_x;
+	int player_y = all->player_y;
+	char **map_copy;
+
+	map_copy = copy_map(map);
+	player_x = 0;
+	player_y = 0;
+	if (map_copy)
+	{
+		check_map_rec(map_copy, player_x, player_y);
+		if (map_path(map_copy))
+			return 1;
+		return 0;	
+	}
+	return 0;
 }

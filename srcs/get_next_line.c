@@ -6,11 +6,12 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:44:20 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/16 13:39:47 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/30 10:05:27 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/get_next_line.h"
+
 
 int	check_str(char *buff)
 {
