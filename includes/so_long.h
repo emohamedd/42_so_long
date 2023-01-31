@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:05:57 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/30 16:10:49 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/31 10:11:20 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,6 @@ int on_destroy(t_map *all);
 char 	**copy_map(char **map);
 void check_map_rec(char **map, int play_x, int play_y);
 int map_path(char **map);
-int all_valid(char **map);
+int all_valid(t_map *all);
 
 #endif

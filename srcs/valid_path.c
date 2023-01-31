@@ -6,12 +6,11 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:05:33 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/30 16:13:46 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/31 10:13:33 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
 
 char **copy_map(char **map)
 {
@@ -35,7 +34,7 @@ char **copy_map(char **map)
 
  void	check_map_rec(char **map, int play_x, int play_y)
 {
-	if (map[play_x][play_y] == '1')
+	if (map[play_x][play_y] == '1'  || map[play_x][play_y] == 'E'  )
 		return ;
 	else
 		map[play_x][play_y] = '1';
@@ -65,14 +64,13 @@ int map_path(char **map)
 	}
 	return 1;
 }
-int all_valid(char **map)
+int all_valid(t_map *all)
 {
-	t_map *all  = NULL;
 	int player_x = all->player_x;
 	int player_y = all->player_y;
 	char **map_copy;
 
-	map_copy = copy_map(map);
+	map_copy = copy_map(all->map);
 	player_x = 0;
 	player_y = 0;
 	if (map_copy)
