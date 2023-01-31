@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:05:33 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/31 10:13:33 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/31 15:48:56 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 char **copy_map(char **map)
 {
 	char **map_copy;
-	int map_len = 0;
-	int col = 0;
+	int map_len;
+	int col;
 	
-		while(map[map_len])
-			map_len++;
+	map_len = 0;
+	while(map[map_len])
+		map_len++;
 	map_copy = malloc((map_len + 1) * sizeof(char*));
+	col = 0;
 	if (!map_copy)
 		return NULL;
 	while(map[col])
@@ -28,13 +30,13 @@ char **copy_map(char **map)
 			map_copy[col] = strdup(map[col]);
 			col++;
 	}
-	map_copy[col] = 0;
+	map_copy[col] = NULL;
 	return map_copy;
 }
 
  void	check_map_rec(char **map, int play_x, int play_y)
 {
-	if (map[play_x][play_y] == '1'  || map[play_x][play_y] == 'E'  )
+	if (map[play_x][play_y] == '1'  || map[play_x][play_y] == 'E')
 		return ;
 	else
 		map[play_x][play_y] = '1';
@@ -64,21 +66,24 @@ int map_path(char **map)
 	}
 	return 1;
 }
+
 int all_valid(t_map *all)
 {
-	int player_x = all->player_x;
+	int player_x  =all->player_x;
 	int player_y = all->player_y;
 	char **map_copy;
-
 	map_copy = copy_map(all->map);
-	player_x = 0;
-	player_y = 0;
+
 	if (map_copy)
 	{
 		check_map_rec(map_copy, player_x, player_y);
-		if (map_path(map_copy))
-			return 1;
-		return 0;	
+		if (map_path(map_copy) == 0)
+		{
+			ft_printf("%sERROR : Invalid PATH%s\n", RED, END);
+			exit(1);	
+		}
+		else
+			ft_printf("%sSUCCES : Valid PATH%s\n", GREEN, END);
 	}
 	return 0;
 }
