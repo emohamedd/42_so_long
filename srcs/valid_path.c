@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:05:33 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/31 15:48:56 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/01/31 17:20:31 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char **copy_map(char **map)
 	}
 	map_copy[col] = NULL;
 	return map_copy;
+
 }
 
  void	check_map_rec(char **map, int play_x, int play_y)
@@ -85,5 +86,6 @@ int all_valid(t_map *all)
 		else
 			ft_printf("%sSUCCES : Valid PATH%s\n", GREEN, END);
 	}
+	free(map_copy);
 	return 0;
 }

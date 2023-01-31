@@ -58,7 +58,7 @@ int check_map(t_map *all)
     }
 
     if (cnt_pt != 1 || cnt_e != 1 || all->cnt_c < 1 || d != all->rows - 1) {
-        ft_printf("%s ERROR : P < 1 || E < 1 || !C%s", RED, END);
+        ft_printf("%s ERROR : P < 1 || E < 1 || !C%s\n", RED, END);
         return 0;
     }
     return 1;
