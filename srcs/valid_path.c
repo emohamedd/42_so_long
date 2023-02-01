@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:05:33 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/31 17:20:31 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:53:29 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int map_path(char **map)
 		rows = 0;
 		while(map[cols][rows])
 		{
-			if (map[cols][rows] != '1' && map[cols][rows] != 'E')
+			if (map[cols][rows] != '1' && map[cols][rows] != 'E' && map[cols][rows] != '0')
 			{
 				return 0;
 			}

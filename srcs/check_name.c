@@ -6,14 +6,13 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:55:43 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/21 12:23:21 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:14:03 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-	
-int check_file_ber(char* file_name)
- {
+int	check_file_ber(char* file_name)
+{
 	  int len = ft_strlen(file_name);
     if (ft_strncmp(file_name + (len - 4), ".ber", 4) == 0)
 			return 1;

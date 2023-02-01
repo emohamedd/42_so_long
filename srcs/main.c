@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:53:48 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/31 14:44:22 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:49:04 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 		if (argc != 2)
 		{
 			ft_printf("%sERROR : Bad Syntax Miss ARG%s", RED, END);
-			exit(1);	
+			exit(1);
 		}
 		all.is_open = 0;
 		all.map_path = argv[1];
@@ -37,5 +37,5 @@
 		draw_map1(&all);
 		mlx_hook(all.mlx_win, 2, 0, key_hook, &all);
 		mlx_hook(all.mlx_win, ON_DESTROY, 0, on_destroy, (void *)0);
-		mlx_loop(all.mlx_ptr);	
+		mlx_loop(all.mlx_ptr);
 	}
