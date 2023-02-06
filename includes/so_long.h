@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:05:57 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/31 14:44:01 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/02/06 10:02:57 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ typedef struct map
 	int i;
 	int j;
 	int counter ;
+
+	int fd;
 }t_map;
 
 
@@ -78,11 +80,12 @@ void banner(void);
 void win_banner(void);
 void coin_count(t_map *all);
 int check_file_ber(char* file_name);
-void exit_door(t_map *all);
+void exit_door();
 int on_destroy(t_map *all);
 char 	**copy_map(char **map);
 void check_map_rec(char **map, int play_x, int play_y);
 int map_path(char **map);
 int all_valid(t_map *all);
+int score_store(t_map *all);
 
 #endif

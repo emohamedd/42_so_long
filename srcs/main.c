@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:53:48 by emohamed          #+#    #+#             */
-/*   Updated: 2023/02/01 17:49:04 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/02/06 15:22:23 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 	int main(int argc, char **argv)
 	{
 		t_map	all;
-
+		all.fd = open("soccer.txt", O_RDONLY);
 		if (argc != 2)
 		{
 			ft_printf("%sERROR : Bad Syntax Miss ARG%s", RED, END);

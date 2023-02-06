@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 20:37:57 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/29 22:53:12 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/02/06 09:33:46 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,9 @@ int key_hook(int keycode, t_map *all)
 	}
 	draw_map1(all);
 	if (all->map[all->player_x][all->player_y] == 'E' && all->is_open == 1)
-		exit_door(all);
+	{
+		exit_door();
+		score_store(all);
+	}
 	return 1;
 }

@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:38:14 by emohamed          #+#    #+#             */
-/*   Updated: 2023/01/31 17:21:47 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/02/06 09:33:19 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,10 @@ int count_lines(char* filename) {
     close(fd);
     return lines;
 }
-void exit_door(t_map *all)
+void exit_door()
 {
     win_banner();
-    ft_printf("%s\t\t\t\t\t\t\t YOUR SCORE : *- %d -* %s\n\n", GREEN, all->counter, END); 
     ft_printf("%s\t\t\t\t\t\t\t\t NOW U ARE READY TO WIN THE WAR !!!%s\n", RED, END); 
-    exit(0);
+
 }
     
