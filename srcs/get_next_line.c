@@ -12,7 +12,6 @@
 
 #include "../includes/get_next_line.h"
 
-
 int	check_str(char *buff)
 {
 	int	i;
