@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:05:57 by emohamed          #+#    #+#             */
-/*   Updated: 2023/02/06 15:42:37 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/02/08 19:45:26 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 # define ESC_KEY 53
 #define ON_DESTROY 17
 
-typedef struct map
+typedef struct s_map
 {
 	char **map;
 	char *map_path;
@@ -59,10 +59,27 @@ typedef struct map
 	int i;
 	int j;
 	int counter ;
-
 	int fd;
 }t_map;
 
+typedef struct s_check_map
+{
+	int	cnt_pt;
+	int	cnt_e;
+	int	d;
+	int	i;
+	int	j;
+}t_check_map;
+
+typedef struct s_valid_map
+{
+	int col;
+	int check_maps;
+	int check;
+	int map_width;
+	int map_height;
+	int row;
+}t_valid_map;
 
 int count_lines(char* filename);
 int valid_map(t_map *all);
@@ -81,10 +98,12 @@ void win_banner(void);
 void coin_count(t_map *all);
 int check_file_ber(char* file_name);
 void exit_door(t_map *all);
-int on_destroy(t_map *all);
+int on_destroy(void);
 char 	**copy_map(char **map);
 void check_map_rec(char **map, int play_x, int play_y);
 int map_path(char **map);
 int all_valid(t_map *all);
+void	loop_map(t_map *all, int x, int y);
+void	printf_message(char *msg);
 
 #endif

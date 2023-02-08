@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:37:43 by emohamed          #+#    #+#             */
-/*   Updated: 2023/02/07 19:04:27 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/02/08 19:24:29 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,39 +35,7 @@ void	draw_map1(t_map *all)
 		x++;
 	}
 	y = 0;
-	while (all->map[y])
-	{
-		x = 0;
-		while (all->map[y][x])
-		{
-			if (all->map[y][x] == '1')
-			{
-				mlx_put_image_to_window(all->mlx_ptr, all->mlx_win, all->wll, x
-					* 50, y * 50);
-			}
-			else if (all->map[y][x] == 'C')
-			{
-				mlx_put_image_to_window(all->mlx_ptr, all->mlx_win, all->clt, x
-					* 50, y * 50);
-			}
-			else if (all->map[y][x] == 'P')
-			{
-				mlx_put_image_to_window(all->mlx_ptr, all->mlx_win, all->p, x
-					* 50, y * 50);
-			}
-			else if (all->map[y][x] == 'E')
-			{
-				if (!all->is_open)
-					mlx_put_image_to_window(all->mlx_ptr, all->mlx_win, all->e,
-						x * 50, y * 50);
-				else
-					mlx_put_image_to_window(all->mlx_ptr, all->mlx_win, all->e2,
-						x * 50, y * 50);
-			}
-			x++;
-		}
-		y++;
-	}
+	loop_map(all, x, y);
 }
 
 void	draw_map(t_map *all)
@@ -75,45 +43,27 @@ void	draw_map(t_map *all)
 	all->bg = mlx_xpm_file_to_image(all->mlx_ptr, "textures/bg.xpm", &all->i,
 			&all->j);
 	if (!all->bg)
-	{
-		ft_printf("%sERROR :Invalid Background image%s", RED, END);
-		exit(1);
-	}
+		printf_message("ERROR :Invalid Background image");
 	all->wll = mlx_xpm_file_to_image(all->mlx_ptr, "textures/texture.xpm",
 			&all->i, &all->j);
 	if (!all->wll)
-	{
-		ft_printf("%sERROR :Invalid wall image%s", RED, END);
-		exit(1);
-	}
+		printf_message("ERROR :Invalid wall image");
 	all->clt = mlx_xpm_file_to_image(all->mlx_ptr, "textures/key.xpm", &all->i,
 			&all->j);
 	if (!all->clt)
-	{
-		ft_printf("%sERROR :Invalid collectable image%s", RED, END);
-		exit(1);
-	}
+		printf_message("ERROR :Invalid collectable image");
 	all->p = mlx_xpm_file_to_image(all->mlx_ptr, "textures/p.xpm", &all->i,
 			&all->j);
 	if (!all->p)
-	{
-		ft_printf("%sERROR :Invalid player image%s", RED, END);
-		exit(1);
-	}
+		printf_message("ERROR :Invalid player image");
 	all->e = mlx_xpm_file_to_image(all->mlx_ptr, "textures/open.xpm", &all->i,
 			&all->j);
 	if (!all->e)
-	{
-		ft_printf("%sERROR :Invalid Exit image%s", RED, END);
-		exit(1);
-	}
+		printf_message("ERROR :Invalid Exit image");
 	all->e2 = mlx_xpm_file_to_image(all->mlx_ptr, "textures/close.xpm", &all->i,
 			&all->j);
 	if (!all->e2)
-	{
-		ft_printf("%sERROR :Invalid Exit image2%s", RED, END);
-		exit(1);
-	}
+		printf_message("ERROR :Invalid Exit image2");
 }
 
 int	on_destroy(void)

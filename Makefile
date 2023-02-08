@@ -6,7 +6,7 @@
 #    By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:59:05 by emohamed          #+#    #+#              #
-#    Updated: 2023/02/06 15:43:13 by emohamed         ###   ########.fr        #
+#    Updated: 2023/02/08 19:11:22 by emohamed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC	= cc
 CFLAGS 	= -Wall -Werror -Wextra 
 
 SRCS = srcs/get_next_line.c srcs/get_next_line_utils.c srcs/so_long_utils.c srcs/so_long.c srcs/get_map.c srcs/check_map.c\
- srcs/main.c srcs/banner.c srcs/check_name.c srcs/moves.c srcs/valid_path.c
+ srcs/main.c srcs/banner.c srcs/check_name.c srcs/moves.c srcs/valid_path.c srcs/draw_map_1_loop.c srcs/print_message.c  
 
 NAME = so_long
 

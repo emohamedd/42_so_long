@@ -6,63 +6,64 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:50:43 by emohamed          #+#    #+#             */
-/*   Updated: 2023/02/07 19:02:17 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/02/08 19:49:52 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
+static void	ini(t_check_map *check)
+{
+	check->cnt_pt = 0;
+	check->cnt_e = 0;
+	check->d = 0;
+	check->i = 0;
+	check->j = 0;
+}
+
 int	check_map(t_map *all)
 {
-	int	cnt_pt;
-	int	cnt_e;
-	int	d;
-	int	i;
-	int	j;
+	t_check_map	check;
 
-	cnt_pt = 0;
-	cnt_e = 0;
+	ini(&check);
 	all->cnt_c = 0;
-	d = 0;
-	i = 0;
-	j = 0;
-	while (ft_strlen(all->map[0]) == ft_strlen(all->map[d]))
+	while (ft_strlen(all->map[0]) == ft_strlen(all->map[check.d]))
 	{
-		d++;
-		if (all->map[d] == NULL)
+		check.d++;
+		if (all->map[check.d] == NULL)
 			break ;
 	}
-	while (i < all->rows - 1)
+	while (check.i < all->rows - 1)
 	{
-		while (j < all->cols)
+		while (check.j < all->cols)
 		{
-			if (!ft_strchr("01ECP", all->map[i][j]))
+			if (!ft_strchr("01ECP", all->map[check.i][check.j]))
 			{
 				ft_printf("%sERROR :  The Map Should Contain Only 01ECP%s\n",
-					RED,
-					END);
+					RED, END);
 				return (0);
 			}
-			else if (all->map[i][j] == 'P')
+			else if (all->map[check.i][check.j] == 'P')
 			{
-				cnt_pt++;
-				all->player_x = i;
-				all->player_y = j;
+				check.cnt_pt++;
+				all->player_x = check.i;
+				all->player_y = check.j;
 			}
-			else if (all->map[i][j] == 'E')
+			else if (all->map[check.i][check.j] == 'E')
 			{
-				cnt_e++;
+				check.cnt_e++;
 			}
-			else if (all->map[i][j] == 'C')
+			else if (all->map[check.i][check.j] == 'C')
 			{
 				all->cnt_c++;
 			}
-			j++;
+			check.j++;
 		}
-		i++;
-		j = 0;
+		check.i++;
+		check.j = 0;
 	}
-	if (cnt_pt != 1 || cnt_e != 1 || all->cnt_c < 1 || d != all->rows - 1)
+	if (check.cnt_pt != 1 || check.cnt_e != 1 || all->cnt_c < 1
+		|| check.d != all->rows - 1)
 	{
 		ft_printf("%s ERROR : P < 1 || E < 1 || !C%s\n", RED, END);
 		return (0);
@@ -72,47 +73,42 @@ int	check_map(t_map *all)
 
 int	valid_map(t_map *all)
 {
-	int	col;
-	int	check_maps;
-	int	check;
-	int	map_width;
-	int	map_height;
-	int	row ;
+	t_valid_map	map;
 
-	col = 0;
-	check = 0;
-	check_maps = check_map(all);
-	map_width = ft_strlen(all->map[0]);
-	map_height = count_lines(all->map_path);
-	col = map_width - 1;
-	while (col >= 0)
+	map.col = 0;
+	map.check = 0;
+	map.check_maps = check_map(all);
+	map.map_width = ft_strlen(all->map[0]);
+	map.map_height = count_lines(all->map_path);
+	map.col = map.map_width - 1;
+	while (map.col >= 0)
 	{
-		if (all->map[0][col] != '1')
-			check = 1;
-		col--;
+		if (all->map[0][map.col] != '1')
+			map.check = 1;
+		map.col--;
 	}
-	col = map_width - 1;
-	while (col >= 0)
+	map.col = map.map_width - 1;
+	while (map.col >= 0)
 	{
-		if (all->map[map_height - 1][col] != '1')
-			check = 1;
-		col--;
+		if (all->map[map.map_height - 1][map.col] != '1')
+			map.check = 1;
+		map.col--;
 	}
-	row = 0;
-	while (row < map_height)
+	map.row = 0;
+	while (map.row < map.map_height)
 	{
-		if (all->map[row][0] != '1')
-			check = 1;
-		row++;
+		if (all->map[map.row][0] != '1')
+			map.check = 1;
+		map.row++;
 	}
-	row = 0;
-	while (row < map_height)
+	map.row = 0;
+	while (map.row < map.map_height)
 	{
-		if (all->map[row][map_width - 1] != '1')
-			check = 1;
-		row++;
+		if (all->map[map.row][map.map_width - 1] != '1')
+			map.check = 1;
+		map.row++;
 	}
-	if (check == 1 || !check_maps)
+	if (map.check == 1 || !map.check_maps)
 	{
 		ft_printf("%sERROR : Invalid Map%s\n", RED, END);
 		exit(1);
