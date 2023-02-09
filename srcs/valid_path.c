@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:05:33 by emohamed          #+#    #+#             */
-/*   Updated: 2023/02/07 18:57:41 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/02/09 13:12:10 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int	all_valid(t_map *all)
 {
 	int		player_x;
 	int		player_y;
+	int		i;
 	char	**map_copy;
 
 	player_x = all->player_x;
@@ -89,6 +90,9 @@ int	all_valid(t_map *all)
 		else
 			ft_printf("%sSUCCES : Valid PATH%s\n", GREEN, END);
 	}
+	i = 0;
+	while (map_copy[i])
+		free(map_copy[i++]);
 	free(map_copy);
 	return (0);
 }
